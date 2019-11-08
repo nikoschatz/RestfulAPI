@@ -1,5 +1,6 @@
 package com.nikoschatz.RestfulAPI;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,11 +11,16 @@ public class Products {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "code", unique = true, nullable = false)
 	private int code;
 	
+    @Column(name = "name", nullable = false, length = 100)
 	private String name;
+    
+    @Column(name = "price", nullable = false)
 	private float price;
+    
 	private String expiration_date;
 	private String availability_date;
 	
