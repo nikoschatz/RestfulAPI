@@ -1,11 +1,8 @@
 package com.nikoschatz.RestfulAPI;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ProductController {
+public class ProductController  {
 	
 	//injecting RestRepository
 	@Autowired
@@ -33,6 +30,7 @@ public class ProductController {
 	public List<Products> getProductByCode(@PathVariable int code){
 		return repository.findByCode(code);
 	}
+	
 	@GetMapping("getProducts/(price)")
 	public List<Products> findAllOrderByPriceAsc(@PathVariable float price) {
         return repository.findByOrderByPriceAsc();
@@ -43,18 +41,18 @@ public class ProductController {
 		
 	}
 	
-	@DeleteMapping("/deleteProduct/{code}")
+	@DeleteMapping("/deleteProduct/(code)")
+	public void deleteProduct(@PathVariable int code) {
+		repository.deleteById(code);
+	}
+	
+	
+	/**@DeleteMapping("/deleteProduct/{code}")
     public String deleteProduct(@PathVariable("code") int code) {
         Optional<Products> p = repository.findById(code);
         repository.delete(p);
         return "deleted";
-    }
+    }*/
 	
-	
-	/**@DeleteMapping("/deleteProduct/(code)")
-	public ResponseEntity<Void> deleteProduct(@PathVariable int code) {
-		 repository.remove(code);
-		return ResponseEntity.noContent().build();
-	}
-	*/
+
 }

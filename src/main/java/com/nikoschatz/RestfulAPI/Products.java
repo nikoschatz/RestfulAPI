@@ -11,7 +11,7 @@ public class Products {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "code", unique = true, nullable = false)
 	private int code;
 	
@@ -19,7 +19,7 @@ public class Products {
 	private String name;
     
     @Column(name = "price", nullable = false)
-	private float price;
+	private int price;
     
 	private String expiration_date;
 	private String availability_date;
@@ -30,10 +30,10 @@ public class Products {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public float getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(float price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	public int getCode() {
