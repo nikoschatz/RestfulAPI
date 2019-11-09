@@ -1,12 +1,12 @@
 # Java Rest API
 
-### A Java application exposin a JSON Rest API.
+### A Java application exposing a JSON Rest API.
 
 
 <br>
 
 #### In order to use this code you will need:
-<br>
+
 
 - Eclipse IDE
 - Java 13
