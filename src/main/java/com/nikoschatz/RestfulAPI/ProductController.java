@@ -47,12 +47,6 @@ public class ProductController  {
 	}
 	
 	
-	/**@DeleteMapping("/deleteProduct/{code}")
-    public String deleteProduct(@PathVariable("code") int code) {
-        Optional<Products> p = repository.findById(code);
-        repository.delete(p);
-        return "deleted";
-    }*/
-	
+
 
 }
